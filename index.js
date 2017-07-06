@@ -9,7 +9,7 @@ const BrowserWindow = electron.BrowserWindow;
 
 let mainWindow;
 
-app.on('ready', function () {
+function createMainWindow() {
     // create window
     mainWindow = new BrowserWindow({ width: 600, height: 400 });
     mainWindow.loadURL('file://' + __dirname + '/index.html');
@@ -20,10 +20,20 @@ app.on('ready', function () {
     mainWindow.on('closed', function () {
         mainWindow = null;
     });
+}
+
+app.on('ready', function () {
+    createMainWindow();
 });
 
 app.on('window-all-closed', function () {
     if (process.platform != 'darwin') {
         app.quit();
+    }
+});
+
+app.on('activate', function () {
+    if (mainWindow === null) {
+        createMainWindow();
     }
 });
