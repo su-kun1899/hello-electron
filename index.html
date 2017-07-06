@@ -22,6 +22,26 @@
 
 <body>
     <p id="quote">Just do it!</p>
+    <script>
+        'use strict';
+
+        const quote = document.getElementById('quote');
+        const quotes = [
+            'Just do it!',
+            'Done is better than perfect',
+            'Stay hungry, stay foolish',
+            'Ask, do not tell',
+            'Focus on the user',
+            'Keep trying',
+            'Nothing is impossible',
+            'That which is measured, improves',
+            'Keep it simple, stupid!'
+        ];
+
+        window.addEventListener('click', function () {
+            quote.innerHTML = quotes[Math.floor(Math.random() * quotes.length)];
+        });
+    </script>
 </body>
 
 </html>
