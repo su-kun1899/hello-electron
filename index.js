@@ -9,15 +9,15 @@ const BrowserWindow = electron.BrowserWindow;
 
 let mainWindow;
 
-app.on('ready', function(){
+app.on('ready', function () {
     // create window
-    mainWindow = new BrowserWindow({width: 600, height: 400});
+    mainWindow = new BrowserWindow({ width: 600, height: 400 });
     mainWindow.loadURL('file://' + __dirname + '/index.html');
-    
+
     // TODO For debug
     mainWindow.webContents.openDevTools();
-    
-    mainWindow.on('closed', function(){
+
+    mainWindow.on('closed', function () {
         mainWindow = null;
     });
 });
