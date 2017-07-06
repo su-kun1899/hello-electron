@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/su-kun1899/hello-electron/issues"
   },
-  "homepage": "https://github.com/su-kun1899/hello-electron#readme"
+  "homepage": "https://github.com/su-kun1899/hello-electron#readme",
+  "devDependencies": {
+    "electron": "^1.6.11"
+  }
 }
