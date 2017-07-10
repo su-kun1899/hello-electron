@@ -7,6 +7,7 @@ const electron = require('electron');
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 const Menu = electron.Menu;
+const dialog = electron.dialog;
 
 let mainWindow;
 
@@ -34,6 +35,15 @@ function createMainWindow() {
 
     mainWindow.on('closed', function () {
         mainWindow = null;
+    });
+}
+
+function showAboutDialog() {
+    dialog.showMessageBox({
+        type: 'info',
+        buttons: ['OK'],
+        message: 'About This App',
+        detail: 'This app was created by @su-kun1899'
     });
 }
 
