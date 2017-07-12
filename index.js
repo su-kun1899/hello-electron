@@ -10,6 +10,7 @@ const Menu = electron.Menu;
 const dialog = electron.dialog;
 
 let mainWindow;
+let settingsWindow;
 
 let menuTemplate = [{
     label: 'Hello Electron',
@@ -36,6 +37,19 @@ function createMainWindow() {
     mainWindow.on('closed', function () {
         mainWindow = null;
     });
+}
+
+function showSettingWindow() {
+    settingsWindow = new BrowserWindow({ width: 600, height: 400 });
+    settingsWindow.loadURL('file://' + __dirname + '/settings.html')
+
+    // TODO For debug
+    settingsWindow.webContents.openDevTools();
+
+    settingsWindow.show();
+    settingsWindow.on('closed', function () {
+        settingsWindow = null;
+    })
 }
 
 function showAboutDialog() {
