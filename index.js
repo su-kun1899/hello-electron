@@ -8,6 +8,7 @@ const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 const Menu = electron.Menu;
 const dialog = electron.dialog;
+const ipcMain = electron.ipcMain;
 
 let mainWindow;
 let settingsWindow;
@@ -24,6 +25,10 @@ let menuTemplate = [{
 }];
 
 let menu = Menu.buildFromTemplate(menuTemplate);
+
+ipcMain.on('settings_changed', function(event, color){
+
+});
 
 function createMainWindow() {
     Menu.setApplicationMenu(menu);
