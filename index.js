@@ -26,8 +26,8 @@ let menuTemplate = [{
 
 let menu = Menu.buildFromTemplate(menuTemplate);
 
-ipcMain.on('settings_changed', function(event, color){
-
+ipcMain.on('settings_changed', function (event, color) {
+    mainWindow.webContents.send('set_bgcolor', color);
 });
 
 function createMainWindow() {
