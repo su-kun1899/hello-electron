@@ -29,6 +29,7 @@
         const remote = electron.remote;
         const Menu = remote.Menu;
         const MenuItem = remote.MenuItem;
+        const shell = remote.shell;
 
         let color = localStorage.getItem('color') ? localStorage.getItem('color') : 'skyblue';
         setBackgroundColr(color);
@@ -79,6 +80,16 @@
         ipcRenderer.on('set_bgcolor', function (event, color) {
             setBackgroundColr(color);
         });
+
+        setTimeout(function () {
+            let notification = new Notification(
+                'Quote!',
+                { body: 'Visit electron website!' }
+            );
+            notification.onclick = function () {
+                shell.openExternal('https://electron.atom.io/');
+            }
+        }, 3000);
     </script>
 </body>
 
