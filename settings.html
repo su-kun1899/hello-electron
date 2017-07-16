@@ -39,7 +39,7 @@
         <script>
             'use strict';
             const ipcRenderer = require('electron').ipcRenderer;
-            let currentColor = ipcRenderer.sendSync('get_bgcolor');
+            let currentColor = localStorage.getItem('color');
 
             let colors = document.getElementsByName('colors');
 
