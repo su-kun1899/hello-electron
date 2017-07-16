@@ -36,8 +36,8 @@ function createMainWindow() {
     mainWindow = new BrowserWindow({ width: 600, height: 400 });
     mainWindow.loadURL('file://' + __dirname + '/index.html');
 
-    // TODO For debug
-    mainWindow.webContents.openDevTools();
+    // For debug
+    // mainWindow.webContents.openDevTools();
 
     mainWindow.on('closed', function () {
         mainWindow = null;
@@ -48,8 +48,8 @@ function showSettingWindow() {
     settingsWindow = new BrowserWindow({ width: 600, height: 400 });
     settingsWindow.loadURL('file://' + __dirname + '/settings.html')
 
-    // TODO For debug
-    settingsWindow.webContents.openDevTools();
+    // For debug
+    // settingsWindow.webContents.openDevTools();
 
     settingsWindow.show();
     settingsWindow.on('closed', function () {
